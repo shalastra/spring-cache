@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/spring-cache-poc-daq/spring-cache-poc-daq.iml" filepath="$PROJECT_DIR$/spring-cache-poc-daq/spring-cache-poc-daq.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-cache-poc-server/spring-cache-poc-server.iml" filepath="$PROJECT_DIR$/spring-cache-poc-server/spring-cache-poc-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springcachepoc.iml" filepath="$PROJECT_DIR$/springcachepoc.iml" />
+    </modules>
+  </component>
+</project>
