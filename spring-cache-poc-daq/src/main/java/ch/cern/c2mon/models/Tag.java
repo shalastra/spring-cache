@@ -62,7 +62,7 @@ public class Tag implements Serializable {
   @Override
   public String toString() {
     final StringBuilder sb = new StringBuilder("Tag{");
-    sb.append(", memory=").append(memory);
+    sb.append("memory=").append(memory);
     sb.append(", freeMemory=").append(freeMemory);
     sb.append(", processors=").append(processors);
     sb.append(", instanceUptime=").append(instanceUptime);
