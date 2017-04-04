@@ -7,6 +7,7 @@ import org.springframework.context.event.EventListener;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
+import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 
 /**
@@ -23,10 +24,13 @@ public class RestComponent {
     RestTemplate restTemplate = new RestTemplate();
 
     Tag tag = new Tag();
+    try {
+      RestTemplate template = new RestTemplate();
+      Tag returns = template.postForObject("http://localhost:8080/get-tag", tag, Tag.class, "1");
 
-    RestTemplate template = new RestTemplate();
-    Tag returns = template.postForObject("http://localhost:8080/get-tag", tag, Tag.class, "1");
-
-    log.info("Posted tag: {}", returns.toString());
+      log.info("Posted tag: {}", returns.toString());
+    } catch (HttpClientErrorException ex) {
+      log.error(ex.toString());
+    }
   }
 }

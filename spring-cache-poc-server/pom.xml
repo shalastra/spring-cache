@@ -12,5 +12,10 @@
   <groupId>ch.cern.c2mon</groupId>
   <artifactId>spring-cache-poc-server</artifactId>
 
-
+  <dependencies>
+    <dependency>
+      <groupId>javax.cache</groupId>
+      <artifactId>cache-api</artifactId>
+    </dependency>
+  </dependencies>
 </project>
