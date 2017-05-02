@@ -1,5 +1,7 @@
 package ch.cern.c2mon.controllers;
 
+import java.util.concurrent.atomic.AtomicLong;
+
 import ch.cern.c2mon.models.Tag;
 import ch.cern.c2mon.repositories.TagRepository;
 import lombok.extern.slf4j.Slf4j;
@@ -20,12 +22,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/get-tag")
 public class TagController {
 
+  AtomicLong atomicLong = new AtomicLong();
+
   @Autowired
   private TagRepository repository;
 
   @RequestMapping(method = RequestMethod.POST)
   public ResponseEntity<Tag> pushTag(@RequestBody Tag tag) {
-    Tag tagWithId = new Tag(0);
+    Tag tagWithId = new Tag(atomicLong.incrementAndGet());
 
     tagWithId.setParams(tag);
 

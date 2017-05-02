@@ -1,11 +1,14 @@
 package ch.cern.c2mon.repositories;
 
+import javax.cache.annotation.CacheResult;
+
 import ch.cern.c2mon.models.Tag;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.CachePut;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Component;
 
 /**
@@ -16,9 +19,12 @@ import org.springframework.stereotype.Component;
 @CacheConfig(cacheNames = "tags")
 public class TagRepository {
 
-  @Cacheable
+  @Autowired
+  CacheManager cacheManager;
+
+  @CacheResult
   public Tag find(long id) {
-    return new Tag(0);
+    return cacheManager.getCache("tags").get(id, Tag.class);
   }
 
   @CachePut

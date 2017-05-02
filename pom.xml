@@ -23,6 +23,8 @@
   <modules>
     <module>spring-cache-poc-server</module>
     <module>spring-cache-poc-daq</module>
+    <module>spring-cache-ignite</module>
+    <module>spring-cache-poc-common</module>
   </modules>
 
   <properties>

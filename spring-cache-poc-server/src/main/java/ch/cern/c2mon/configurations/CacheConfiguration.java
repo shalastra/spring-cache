@@ -1,22 +1,30 @@
 package ch.cern.c2mon.configurations;
 
-import org.springframework.cache.CacheManager;
+import javax.inject.Inject;
+
+import ch.cern.c2mon.C2monCacheConfiguration;
 import org.springframework.cache.annotation.EnableCaching;
-import org.springframework.cache.concurrent.ConcurrentMapCacheManager;
-import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
 /**
  * @author Szymon Halastra
  */
 
-@org.springframework.context.annotation.Configuration
+@Configuration
 @EnableCaching
 public class CacheConfiguration {
 
-  @Bean
-  public CacheManager cacheManager() {
-    CacheManager cacheManager = new ConcurrentMapCacheManager("tags");
+  private final C2monCacheConfiguration c2monCacheConfiguration;
 
-    return cacheManager;
+  @Inject
+  public CacheConfiguration(C2monCacheConfiguration c2monCacheConfiguration) {
+    this.c2monCacheConfiguration = c2monCacheConfiguration;
   }
+
+
+  /**TODO:
+   * 1. create method definitions in C2monCacheConfiguration interface for name and other stuff people should provide
+   * 2. fix detecting an implementation in other module
+   * 3.
+   */
 }

@@ -6,6 +6,9 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="spring-cache-common" />
+        <module name="spring-cache-ignite" />
+        <module name="spring-cache-poc-common" />
         <module name="spring-cache-poc-daq" />
         <module name="spring-cache-poc-server" />
         <module name="springcachepocdaq" />
@@ -13,6 +16,9 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="spring-cache-common" target="1.8" />
+      <module name="spring-cache-ignite" target="1.5" />
+      <module name="spring-cache-poc-common" target="1.8" />
       <module name="spring-cache-poc-daq" target="1.8" />
       <module name="spring-cache-poc-server" target="1.8" />
       <module name="springcachepoc" target="1.8" />
